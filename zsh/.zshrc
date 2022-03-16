@@ -34,13 +34,11 @@ done
 if [[ "$LC_TERMINAL" = "iTerm2" ]]
 then
     change() {
-        current_tty=$_P9K_TTY
-        thumbnails='/Users/cbadke/Pictures/backgrounds/digital blasphemy/laptop'
-        images=(`\ls $thumbnails`)
+        image_dir='/Users/cbadke/Pictures/backgrounds/digitalblasphemy/wallpapers/single/2880x1800'
+        images=(`\ls $image_dir`)
         num_images=${#images[*]}
-        myfilename="${thumbnails}/`echo ${images[$((RANDOM%$num_images + 1))]}`"
+        myfilename="${image_dir}/`echo ${images[$((RANDOM%$num_images + 1))]}`"
         base64filename=`echo ""${myfilename}"" | base64`;
-        #echo "\033]1337;SetBackgroundImageFile=${base64filename}\a" > $current_tty;
         echo "\033]1337;SetBackgroundImageFile=${base64filename}\a"
         unset $RANDOM
     }

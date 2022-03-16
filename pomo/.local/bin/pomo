@@ -94,7 +94,6 @@ do
 
 	! $MUTE && play_notification
 	if $INTERACTIVE; then
-		read -d '' -t 0.001
 		echo -e "\a"
 		echo "Work over"
 		read
@@ -110,7 +109,6 @@ do
 
 	! $MUTE && play_notification
 	if $INTERACTIVE; then
-		read -d '' -t 0.001
 		echo -e "\a"
 		echo "Rest over"
 		read

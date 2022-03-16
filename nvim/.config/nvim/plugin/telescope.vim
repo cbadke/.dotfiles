@@ -1,6 +1,7 @@
 if has("nvim")
-    nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
-    nnoremap <leader>fs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-    nnoremap <leader>ff :lua require('telescope.builtin').find_files()<CR>
-    nnoremap <leader>fb :lua require('telescope.builtin').buffers()<CR>
+    nnoremap <C-p> <cmd>Telescope git_files theme=dropdown<CR>
+    nnoremap <leader>fg <cmd>Telescope git_files theme=dropdown<CR>
+    nnoremap <leader>ff <cmd>Telescope find_files theme=dropdown<CR>
+    nnoremap <leader>fb <cmd>Telescope buffers theme=dropdown<CR>
+    nnoremap <leader>man <cmd>Telescope man_pages<CR>
 endif

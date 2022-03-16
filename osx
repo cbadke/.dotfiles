@@ -16,7 +16,7 @@ install_or_upgrade ripgrep
 install_or_upgrade fd
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="git,intuit,pomo,task,timewarrior,tmux,nvim,zsh,vim,work-dotfiles"
+    STOW_FOLDERS="git,intuit,pomo,task,timewarrior,tmux,nvim,zsh,vim"
 fi
 
 if [[ -z $DOTFILES ]]; then
