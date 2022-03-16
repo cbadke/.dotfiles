@@ -138,3 +138,8 @@ map <leader>ts :sp ~/Dropbox/notes/tool-sharpening.txt<cr>
 map <leader>todo :sp ~/Dropbox/notes/todo.txt<cr>
 map <leader>bm :sp ~/Dropbox/notes/bookmarks.txt<cr>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CUSTOM FILE BEHAVIOURS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
