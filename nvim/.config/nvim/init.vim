@@ -1,15 +1,17 @@
 let mapleader = " "
 
-
 call plug#begin('~/.vim/plugged')
-Plug 'nvim-lua/plenary.nvim'
-Plug 'BurntSushi/ripgrep'
-Plug 'sharkdp/fd'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'gruvbox-community/gruvbox'
+
+if has("nvim")
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'BurntSushi/ripgrep'
+    Plug 'sharkdp/fd'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-telescope/telescope.nvim'
 " neovim lsp
-" fugitive
+endif
+
+Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
 " undotree
 call plug#end()
