@@ -22,7 +22,7 @@
     ds = diff --stat=160,120
     dh1 = diff HEAD~1
 
-    lg = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+    lg = log --graph --date-order -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 
 [merge]
     tool = vimdiff
