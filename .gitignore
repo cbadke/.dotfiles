@@ -22,6 +22,7 @@
 .thumbnails/
 .vim/.netrwhist
 .vim/backup/
+.vim/bundle/vim-ps1
 .viminfo
 .zcompdump
 .zsh-update
