@@ -10,7 +10,7 @@ set nocompatible
 " allow unsaved background buffers and remember marks/undo for them
 set hidden
 " remember more commands and search history
-set history=10000
+set history=500
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -27,11 +27,8 @@ set number
 set switchbuf=useopen
 set numberwidth=5
 set showtabline=2
+set scrolloff=8
 set visualbell t_vb=    " turn off error beep/flash
-" use emacs-style tab completion when selecting files, etc
-set wildmode=longest,list
-" make tab completion for files/buffers act like bash
-set wildmenu
 let mapleader=","
 
 hi Search guibg=LightBlue ctermbg=LightBlue
@@ -46,15 +43,60 @@ set directory=~/.vim/backup
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 set colorcolumn=80
 
-" Settings for VimClojure
-let vimclojure#HighlightBuiltins=1      " Highlight Clojure's builtins
-let vimclojure#ParenRainbow=1           " Rainbow parentheses'!
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Wildmenu completion: use for file exclusions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set wildmenu
+set wildmode=longest,list
+set wildignore+=.hg,.git,.svn " Version Controls"
+set wildignore+=*.aux,*.out,*.toc "Latex Indermediate files"
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Binary Imgs"
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest "Compiled Object files"
+set wildignore+=*.spl "Compiled speolling world list"
+set wildignore+=*.sw? "Vim swap files"
+set wildignore+=*.DS_Store "OSX SHIT"
+set wildignore+=*.luac "Lua byte code"
+set wildignore+=migrations "Django migrations"
+set wildignore+=*.pyc "Python Object codes"
+set wildignore+=*.orig "Merge resolution files"
+set wildignore+=*.class "java/scala class files"
+set wildignore+=*/target/* "sbt target directory"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rainbow parantheses
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rbpt_colorpairs = [
+\ ['brown', 'RoyalBlue3'],
+\ ['Darkblue', 'SeaGreen3'],
+\ ['darkgray', 'DarkOrchid3'],
+\ ['darkgreen', 'firebrick3'],
+\ ['darkcyan', 'RoyalBlue3'],
+\ ['darkred', 'SeaGreen3'],
+\ ['darkmagenta', 'DarkOrchid3'],
+\ ['brown', 'firebrick3'],
+\ ['gray', 'RoyalBlue3'],
+\ ['black', 'SeaGreen3'],
+\ ['darkmagenta', 'DarkOrchid3'],
+\ ['Darkblue', 'firebrick3'],
+\ ['darkgreen', 'RoyalBlue3'],
+\ ['darkcyan', 'SeaGreen3'],
+\ ['darkred', 'DarkOrchid3'],
+\ ['red', 'firebrick3'],
+\ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree Config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd vimenter * if !argc() | NERDTree | endif
-map <C-n> :NERDTreeToggle<cr>
+map <leader>n :NERDTreeToggle<cr>
+map <leader>r :NERDTreeFind<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
@@ -73,7 +115,6 @@ augroup vimrcEx
   autocmd! CmdwinEnter * :unmap <cr>
   autocmd! CmdwinLeave * :call MapCR()
 
-  autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -129,6 +170,34 @@ function! RenameFile()
     endif
 endfunction
 map <leader>r :call RenameFile()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COMMENT COMMANDS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! Comment()
+let ext = tolower(expand('%:e'))
+if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
+silent s/^/\#/
+elseif ext == 'js' || ext == 'scala'
+silent s:^:\/\/:g
+elseif ext == 'vim'
+silent s:^:\":g
+endif
+endfunction
+ 
+function! Uncomment()
+let ext = tolower(expand('%:e'))
+if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
+silent s/^\#//
+elseif ext == 'js' || ext == 'scala'
+silent s:^\/\/::g
+elseif ext == 'vim'
+silent s:^\"::g
+endif
+endfunction
+ 
+map <C-a> :call Comment()<CR>
+map <C-s> :call Uncomment()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LEADER COMMANDS 
