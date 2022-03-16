@@ -4,21 +4,12 @@
 [submodule ".vim/bundle/vim-less"]
 	path = .vim/bundle/vim-less
 	url = git@github.com:groenewege/vim-less.git
-[submodule ".vim/bundle/vim-gitgutter"]
-	path = .vim/bundle/vim-gitgutter
-	url = git@github.com:airblade/vim-gitgutter.git
 [submodule ".vim/bundle/fsharp-vim"]
 	path = .vim/bundle/fsharp-vim
 	url = git@github.com:kongo2002/fsharp-vim.git
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/bundle/vim-repeat
 	url = git@github.com:tpope/vim-repeat.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
-[submodule ".vim/bundle/vim-git"]
-	path = .vim/bundle/vim-git
-	url = git://github.com/tpope/vim-git.git
 [submodule ".vim/bundle/vim-fireplace"]
 	path = .vim/bundle/vim-fireplace
 	url = git://github.com/tpope/vim-fireplace.git
