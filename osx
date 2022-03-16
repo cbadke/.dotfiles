@@ -1,6 +1,22 @@
 #!/usr/bin/env zsh
+
+function install_or_upgrade {
+    if brew ls --versions "$1" >/dev/null; then
+        HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade "$1"
+    else
+        HOMEBREW_NO_AUTO_UPDATE=1 brew install "$1"
+    fi
+}
+
+install_or_upgrade nvim
+install_or_upgrade tmux
+install_or_upgrade stow
+install_or_upgrade lua
+install_or_upgrade ripgrep
+install_or_upgrade fd
+
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="git,intuit,task,timewarrior,tmux,nvim,zsh,vim,work-dotfiles"
+    STOW_FOLDERS="git,intuit,pomo,task,timewarrior,tmux,nvim,zsh,vim,work-dotfiles"
 fi
 
 if [[ -z $DOTFILES ]]; then
