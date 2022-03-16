@@ -3,6 +3,11 @@
     email = curtis@badkid.ca
     
 [diff]
+    renames = true
+[mergetool]
+    keepBackup = false
+[log]
+    date = relative
 [color]
     ui = auto
 [alias]
@@ -21,8 +26,12 @@
     b = branch
     ds = diff --stat=160,120
     dh1 = diff HEAD~1
+    rbi = rebase -i
+    rbc = rebase --continue
+    rba = rebase --amend
 
     lg = log --graph --date-order -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
+    new = log origin/master.. --reverse -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 
 [merge]
     tool = vimdiff

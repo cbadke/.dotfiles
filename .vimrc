@@ -27,6 +27,7 @@ set number
 set switchbuf=useopen
 set numberwidth=5
 set showtabline=2
+set visualbell t_vb=    " turn off error beep/flash
 
 hi Search guibg=LightBlue
 
