@@ -16,7 +16,7 @@ function npm_install_or_upgrade {
     fi
 }
 
-if ! brew --version; then
+if ! brew --version >/dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
     echo brew installed
