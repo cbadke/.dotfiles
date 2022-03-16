@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/rainbow_parentheses.vim"]
 	path = .vim/bundle/rainbow_parentheses.vim
 	url = git@github.com:kien/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/vim-arduino-syntax"]
+	path = .vim/bundle/vim-arduino-syntax
+	url = git@github.com:sudar/vim-arduino-syntax.git
