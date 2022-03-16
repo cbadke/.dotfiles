@@ -1,4 +1,3 @@
-execute pathogen#infect()
 
 syntax on
 filetype plugin indent on
@@ -36,8 +35,7 @@ set background=dark
 
 set backspace=indent,eol,start
 
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+set nobackup
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 set colorcolumn=80
@@ -45,7 +43,7 @@ set colorcolumn=80
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LEADER COMMANDS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","
+let mapleader=" "
 
 " Spell check toggle
 map <leader>sp :setlocal spell! spelllang=en_us<CR>

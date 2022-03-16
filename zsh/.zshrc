@@ -11,7 +11,7 @@ autoload -Uz compinit && compinit
 
 function chpwd() {
     emulate -L zsh
-    ls -Gla
+    ls -Glah
 }
 
 
@@ -20,5 +20,6 @@ alias average="awk -f $myPath/scripts/awk/average.awk"
 alias min="awk -f $myPath/scripts/awk/min.awk"
 alias max="awk -f $myPath/scripts/awk/max.awk"
 alias count="wc -l"
+alias vim="nvim"
 
-
+source $HOME/.work-dotfiles/.config/zsh/.intuit-zshrc

@@ -1,6 +1,6 @@
 [user]
 	name = Curtis Badke
-	email = cbadke@gmail.com
+	email = curtis_badke@intuit.com
 
 [diff]
 	renames = true
@@ -22,10 +22,11 @@
 	d = diff
 	dc = diff --cached
 	dh1 = diff -w HEAD~1 HEAD
+	dn = diff --name-only
 	ds = diff --stat=160,120
 	dw = diff -w
 	dwc = diff -w --cached
-	fa = fetch --all --prune
+	fa = fetch --all --prune --prune-tags
 	ff = pull --ff-only --prune
 	lg = log --graph --date-order -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 	new = log origin/master.. --reverse -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
@@ -60,3 +61,5 @@
 	pager = diff-so-fancy | less --tabs=2 -RFX
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
