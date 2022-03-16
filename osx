@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-function install_or_upgrade {
+function brew_install_or_upgrade {
     if brew ls --versions "$1" >/dev/null; then
         HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade "$1"
     else
@@ -8,12 +8,47 @@ function install_or_upgrade {
     fi
 }
 
-install_or_upgrade nvim
-install_or_upgrade tmux
-install_or_upgrade stow
-install_or_upgrade lua
-install_or_upgrade ripgrep
-install_or_upgrade fd
+function npm_install_or_upgrade {
+    if npm ls -g "$1" >/dev/null; then
+        npm update -g "$1"
+    else
+        npm install -g "$1"
+    fi
+}
+
+if ! brew --version; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    echo brew installed
+fi
+
+brew update
+
+# makes this whole management thing work
+brew_install_or_upgrade stow
+
+# zsh experience
+brew_install_or_upgrade powerlevel10k
+
+# cli task management, used by pomo
+brew_install_or_upgrade timewarrior
+brew_install_or_upgrade task
+
+# make nvim/vim awesome
+brew_install_or_upgrade nvim
+brew_install_or_upgrade tmux
+brew_install_or_upgrade lua
+brew_install_or_upgrade ripgrep
+brew_install_or_upgrade fd
+brew_install_or_upgrade node
+npm_install_or_upgrade pyright
+
+brew_install_or_upgrade git
+brew_install_or_upgrade diff-so-fancy
+
+brew_install_or_upgrade jq
+
+brew cleanup
 
 if [[ -z $STOW_FOLDERS ]]; then
     STOW_FOLDERS="git,intuit,pomo,task,timewarrior,tmux,nvim,zsh,vim"

@@ -34,7 +34,7 @@ done
 if [[ "$LC_TERMINAL" = "iTerm2" ]]
 then
     change() {
-        image_dir='/Users/cbadke/Pictures/backgrounds/digitalblasphemy/wallpapers/single/2880x1800'
+        image_dir='/Users/cbadke/Pictures/backgrounds/digitalblasphemy/wallpapers/single/3440x1440'
         images=(`\ls $image_dir`)
         num_images=${#images[*]}
         myfilename="${image_dir}/`echo ${images[$((RANDOM%$num_images + 1))]}`"

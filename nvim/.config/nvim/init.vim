@@ -8,7 +8,8 @@ if has("nvim")
     Plug 'sharkdp/fd'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-telescope/telescope.nvim'
-" neovim lsp
+
+    Plug 'neovim/nvim-lspconfig'
 endif
 
 Plug 'gruvbox-community/gruvbox'
@@ -26,7 +27,15 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END
+
 augroup cbad
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
+
+nnoremap gl <cmd>bnext<CR>
+nnoremap gh <cmd>bnext<CR>
