@@ -13,6 +13,7 @@
 .gnome*/
 .guard_history
 .irb_history
+.lein/
 .lesshst
 .local/
 .mono/
