@@ -8,9 +8,6 @@ source $ZSH/oh-my-zsh.sh
 
 export DEFAULT_USER=cbadke
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias rm="rm -i"
 alias ls="ls -Glah"
 alias g="git"
@@ -24,3 +21,10 @@ function chpwd() {
     emulate -L zsh
     ls -Gla
 }
+
+
+myPath=`dirname ${(%):-%N}`
+alias average="awk -f $myPath/scripts/awk/average.awk"
+alias min="awk -f $myPath/scripts/awk/min.awk"
+alias max="awk -f $myPath/scripts/awk/max.awk"
+alias count="wc -l"
