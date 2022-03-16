@@ -29,7 +29,6 @@ set numberwidth=5
 set showtabline=2
 set scrolloff=8
 set visualbell t_vb=    " turn off error beep/flash
-let mapleader=","
 
 hi Search guibg=LightBlue ctermbg=LightBlue
 
@@ -42,6 +41,22 @@ set directory=~/.vim/backup
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 set colorcolumn=80
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LEADER COMMANDS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=","
+
+" Spell check toggle
+map <leader>sp :setlocal spell! spelllang=en_us<CR>
+
+" reload configuration file
+map <Leader>r :so $MYVIMRC<CR>
+
+" Use leader l to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
@@ -83,3 +98,17 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitconfig setlocal noexpandtab
+
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+

@@ -20,21 +20,26 @@
 	co = checkout
 	d = diff
 	dc = diff --cached
-	dcw = diff -w --cached
-	dh1 = diff -w HEAD~1
+	dh1 = diff -w HEAD~1 HEAD
 	ds = diff --stat=160,120
 	dw = diff -w
+	dwc = diff -w --cached
 	fa = fetch --all --prune
 	ff = pull --ff-only --prune
 	lg = log --graph --date-order -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 	new = log origin/master.. --reverse -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 	noff = merge --no-ff
+	po = push origin 
 	pom = push origin master
 	prn = remote prune
 	prno = remote prune origin
-	rba = rebase --amend
+	recent = for-each-ref --sort=-committerdate --count=10 --format=‘%(refname:short)’ refs/heads/
+	rb = rebase
+	rba = rebase --abort
 	rbc = rebase --continue
 	rbi = rebase -i
+	rbim = rebase -i origin/master
+	rbm = rebase origin/master
 	s = status
 	scrub = !git clean -xfd && git reset --hard
 	st = status
