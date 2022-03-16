@@ -90,8 +90,6 @@ imap <C-k> <esc>:GitGutterPrevHunk<cr>
 
 nmap <C-h> :bp<cr>
 nmap <C-l> :bn<cr>
-imap <C-h> <esc>:bp<cr>
-imap <C-l> <esc>:bn<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
