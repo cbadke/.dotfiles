@@ -22,6 +22,7 @@
 .ssh/
 .subversion/
 .thumbnails/
+.Trash/
 .vim/.netrwhist
 .vim/backup/
 .vim/bundle/vim-ps1
