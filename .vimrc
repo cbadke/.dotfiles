@@ -135,4 +135,5 @@ map <leader>r :call RenameFile()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>np :sp ~/Dropbox/notes/notepad.txt<cr>
 map <leader>ts :sp ~/Dropbox/notes/tool-sharpening.txt<cr>
+map <leader>todo :sp ~/Dropbox/notes/todo.txt<cr>
 
