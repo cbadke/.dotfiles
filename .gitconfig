@@ -35,3 +35,7 @@
 
 [merge]
     tool = vimdiff
+[core]
+    editor = vi
+[pull]
+    rebase = true
