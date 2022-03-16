@@ -1,8 +1,8 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME=${ZSH_THEME:-wedisagree}
 
-plugins=(git osx aws docker docker-compose kubectl)
+plugins=($plugins git osx docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
