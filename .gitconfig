@@ -1,7 +1,7 @@
 [user]
-    name = Curtis Badke
-    email = curtis@badkid.ca
-    
+    #name = Curtis Badke
+    #email = curtis.badke@devfacto.com
+
 [diff]
     renames = true
 [mergetool]
@@ -12,30 +12,46 @@
     ui = auto
 [alias]
     st = status
+    s = status
     ci = commit
+    cm = commit -m
     co = checkout
-    di = diff
+    d = diff
+    dw = diff -w
     dc = diff --cached
+    dwc = diff -w --cached
     amend = commit --amend
     aa = add --all .
-    ff = merge --ff-only
-    pullff = pull --ff-only
+    ff = pull --ff-only
     noff = merge --no-ff
     fa = fetch --all
     pom = push origin master
     b = branch
     ds = diff --stat=160,120
-    dh1 = diff HEAD~1
+    dh1 = diff -w HEAD~1
     rbi = rebase -i
     rbc = rebase --continue
     rba = rebase --amend
+    prn = remote prune
+    prno = remote prune origin
+
+    scrub = !git clean -xfd && git reset --hard
 
     lg = log --graph --date-order -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
     new = log origin/master.. --reverse -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 
+    #https://github.com/brauliobo/gitconfig/blob/master/configs/.gitconfig
+    # git change-commits GIT_COMMITTER_NAME "old name" "new name"
+    change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+    # from https://help.github.com/articles/remove-sensitive-data
+    remove-file = "!f() { git filter-branch -f --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all; }; f"
+
 [merge]
     tool = vimdiff
 [core]
-    editor = vi
+    editor = vim
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [pull]
     rebase = true
+[user]
+	email = curtis.badke@devfacto.com

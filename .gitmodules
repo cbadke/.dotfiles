@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = git@github.com:tpope/vim-markdown.git
+[submodule ".vim/bundle/.vim/bundle/vim-jsx"]
+	path = .vim/bundle/.vim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git

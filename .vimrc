@@ -205,3 +205,9 @@ map <leader>bm :sp ~/Dropbox/notes/bookmarks.txt<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
+
+"spell check for markdown and git commit
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.markdown setlocal spell
+autocmd FileType gitcommit setlocal spell
+
