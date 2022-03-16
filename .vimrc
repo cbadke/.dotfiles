@@ -43,7 +43,6 @@ set directory=~/.vim/backup
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 set colorcolumn=80
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Wildmenu completion: use for file exclusions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,33 +62,6 @@ set wildignore+=*.orig "Merge resolution files"
 set wildignore+=*.class "java/scala class files"
 set wildignore+=*/target/* "sbt target directory"
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Rainbow parantheses
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:rbpt_colorpairs = [
-\ ['brown', 'RoyalBlue3'],
-\ ['Darkblue', 'SeaGreen3'],
-\ ['darkgray', 'DarkOrchid3'],
-\ ['darkgreen', 'firebrick3'],
-\ ['darkcyan', 'RoyalBlue3'],
-\ ['darkred', 'SeaGreen3'],
-\ ['darkmagenta', 'DarkOrchid3'],
-\ ['brown', 'firebrick3'],
-\ ['gray', 'RoyalBlue3'],
-\ ['black', 'SeaGreen3'],
-\ ['darkmagenta', 'DarkOrchid3'],
-\ ['Darkblue', 'firebrick3'],
-\ ['darkgreen', 'RoyalBlue3'],
-\ ['darkcyan', 'SeaGreen3'],
-\ ['darkred', 'DarkOrchid3'],
-\ ['red', 'firebrick3'],
-\ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
@@ -118,11 +90,6 @@ function! MapCR()
   nnoremap <cr> :nohlsearch<cr>
 endfunction
 call MapCR()
-
-nmap <C-j> :GitGutterNextHunk<cr>
-nmap <C-k> :GitGutterPrevHunk<cr>
-imap <C-j> <esc>:GitGutterNextHunk<cr>
-imap <C-k> <esc>:GitGutterPrevHunk<cr>
 
 nmap <C-h> :bp<cr>
 nmap <C-l> :bn<cr>

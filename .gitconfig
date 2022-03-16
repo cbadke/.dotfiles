@@ -1,6 +1,6 @@
 [user]
-    #name = Curtis Badke
-    #email = curtis.badke@devfacto.com
+    name = Curtis Badke
+    email = cbadke@gmail.com
 
 [diff]
     renames = true
@@ -50,7 +50,7 @@
     tool = vimdiff
 [core]
     editor = vim
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    #pager = diff-so-fancy | less --tabs=4 -RFX
 [pull]
     rebase = true
 [user]
