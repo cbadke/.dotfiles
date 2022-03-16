@@ -15,6 +15,7 @@
 	amend = commit --amend
 	b = branch
 	ce = commit --allow-empty
+	cme = commit --allow-empty -m
 	ci = commit
 	cm = commit -m
 	co = checkout
@@ -29,7 +30,8 @@
 	lg = log --graph --date-order -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 	new = log origin/master.. --reverse -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 	noff = merge --no-ff
-	po = push origin 
+	pf = push --force
+	po = push -u origin
 	pom = push origin master
 	prn = remote prune
 	prno = remote prune origin
@@ -43,6 +45,7 @@
 	s = status
 	scrub = !git clean -xfd && git reset --hard
 	st = status
+	unstage = restore --staged
 
 	#https://github.com/brauliobo/gitconfig/blob/master/configs/.gitconfig
 	# git change-commits GIT_COMMITTER_NAME "old name" "new name"

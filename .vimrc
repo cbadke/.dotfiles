@@ -43,7 +43,7 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 set colorcolumn=80
 
 let vim_markdown_preview_github=1
-let vim_markdown_preview_toggle=1
+let vim_markdown_preview_toggle=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LEADER COMMANDS

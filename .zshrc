@@ -1,11 +1,3 @@
-export ZSH=$HOME/.oh-my-zsh
-
-ZSH_THEME=${ZSH_THEME:-wedisagree}
-
-plugins=($plugins git osx docker docker-compose)
-
-source $ZSH/oh-my-zsh.sh
-
 export DEFAULT_USER=cbadke
 
 alias rm="rm -i"
@@ -28,3 +20,5 @@ alias average="awk -f $myPath/scripts/awk/average.awk"
 alias min="awk -f $myPath/scripts/awk/min.awk"
 alias max="awk -f $myPath/scripts/awk/max.awk"
 alias count="wc -l"
+
+
