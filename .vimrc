@@ -34,7 +34,7 @@ set wildmode=longest,list
 set wildmenu
 let mapleader=","
 
-hi Search guibg=LightBlue
+hi Search guibg=LightBlue ctermbg=LightBlue
 
 set background=dark
 
@@ -44,7 +44,6 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 set colorcolumn=80
 
 " Settings for VimClojure
@@ -84,6 +83,16 @@ function! MapCR()
 endfunction
 call MapCR()
 
+nmap <C-j> :GitGutterNextHunk<cr>
+nmap <C-k> :GitGutterPrevHunk<cr>
+imap <C-j> <esc>:GitGutterNextHunk<cr>
+imap <C-k> <esc>:GitGutterPrevHunk<cr>
+
+nmap <C-h> :bp<cr>
+nmap <C-l> :bn<cr>
+imap <C-h> <esc>:bp<cr>
+imap <C-l> <esc>:bn<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
@@ -119,6 +128,11 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>n :call RenameFile()<cr>
+map <leader>r :call RenameFile()<cr>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LEADER COMMANDS 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>np :sp ~/Dropbox/notes/notepad.txt<cr>
+map <leader>ts :sp ~/Dropbox/notes/tool-sharpening.txt<cr>
 
