@@ -7,13 +7,6 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="wedisagree"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias rm="rm -i"
-alias fsc="fsharpc"
-alias fsi="fsharpi"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -43,3 +36,16 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
 
 eval "$(rbenv init -)"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias rm="rm -i"
+alias fsc="fsharpc"
+alias fsi="fsharpi"
+alias ls="ls -Gla"
+
+function chpwd() {
+    emulate -L zsh
+    ls -Gla
+}
