@@ -82,4 +82,4 @@ map <Down> <Nop>
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
-
+autocmd FileType gitconfig setlocal noexpandtab
