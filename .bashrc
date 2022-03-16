@@ -117,3 +117,11 @@ if ! shopt -oq posix; then
 fi
 
 export PATH=$PATH:~/scala_tools/sbt/bin
+
+
+
+
+#helper functions
+a2h() { echo "$1" | tr -d '\n' | xxd -p; };
+h2a() { echo "$1" | xxd -ps -r; echo;};
+
