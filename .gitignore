@@ -15,6 +15,7 @@
 .irb_history
 .lesshst
 .local/
+.mono/
 .oh-my-zsh/
 .rbenv/
 .ssh/
