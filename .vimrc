@@ -12,9 +12,9 @@ set hidden
 " remember more commands and search history
 set history=500
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set showmatch
 set incsearch
@@ -42,45 +42,6 @@ set directory=~/.vim/backup
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 set colorcolumn=80
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Wildmenu completion: use for file exclusions
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wildmenu
-set wildmode=longest,list
-set wildignore+=.hg,.git,.svn " Version Controls"
-set wildignore+=*.aux,*.out,*.toc "Latex Indermediate files"
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Binary Imgs"
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest "Compiled Object files"
-set wildignore+=*.spl "Compiled speolling world list"
-set wildignore+=*.sw? "Vim swap files"
-set wildignore+=*.DS_Store "OSX SHIT"
-set wildignore+=*.luac "Lua byte code"
-set wildignore+=migrations "Django migrations"
-set wildignore+=*.pyc "Python Object codes"
-set wildignore+=*.orig "Merge resolution files"
-set wildignore+=*.class "java/scala class files"
-set wildignore+=*/target/* "sbt target directory"
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CUSTOM AUTOCMDS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup vimrcEx
-  " Clear all autocmds in the group
-  autocmd!
-  " Jump to last cursor position unless it's invalid or in an event handler
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  " Leave the return key alone when in command line windows, since it's used
-  " to run commands there.
-  autocmd! CmdwinEnter * :unmap <cr>
-  autocmd! CmdwinLeave * :call MapCR()
-
-augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
@@ -116,62 +77,6 @@ map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RENAME CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>r :call RenameFile()<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" COMMENT COMMANDS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! Comment()
-let ext = tolower(expand('%:e'))
-if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
-silent s/^/\#/
-elseif ext == 'js' || ext == 'scala'
-silent s:^:\/\/:g
-elseif ext == 'vim'
-silent s:^:\":g
-endif
-endfunction
- 
-function! Uncomment()
-let ext = tolower(expand('%:e'))
-if ext == 'php' || ext == 'rb' || ext == 'sh' || ext == 'py'
-silent s/^\#//
-elseif ext == 'js' || ext == 'scala'
-silent s:^\/\/::g
-elseif ext == 'vim'
-silent s:^\"::g
-endif
-endfunction
- 
-map <C-a> :call Comment()<CR>
-map <C-s> :call Uncomment()<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LEADER COMMANDS 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>np :sp ~/Dropbox/notes/notepad.txt<cr>
-map <leader>ts :sp ~/Dropbox/notes/tool-sharpening.txt<cr>
-map <leader>todo :sp ~/Dropbox/notes/todo.txt<cr>
-map <leader>bm :sp ~/Dropbox/notes/bookmarks.txt<cr>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CUSTOM FILE BEHAVIOURS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 "spell check for markdown and git commit
 autocmd BufRead,BufNewFile *.md setlocal spell
