@@ -25,7 +25,11 @@ alias count="wc -l"
 alias vim="nvim"
 alias vi="nvim"
 
-source $HOME/.work-dotfiles/.config/zsh/.intuit-zshrc
+
+for zshrc in $(\ls ~/.zsh/.*-zshrc | sort)
+do
+    source $zshrc
+done
 
 if [[ "$LC_TERMINAL" = "iTerm2" ]]
 then
