@@ -1,0 +1,15 @@
+[submodule ".vim/bundle/Windows-PowerShell-Syntax-Plugin"]
+	path = .vim/bundle/Windows-PowerShell-Syntax-Plugin
+	url = git@github.com:vim-scripts/Windows-PowerShell-Syntax-Plugin.git
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/vim-less"]
+	path = .vim/bundle/vim-less
+	url = git@github.com:groenewege/vim-less.git
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
+[submodule ".vim/bundle/fsharp-vim"]
+	path = .vim/bundle/fsharp-vim
+	url = git@github.com:kongo2002/fsharp-vim.git
