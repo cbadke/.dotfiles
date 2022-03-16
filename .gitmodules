@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/Windows-PowerShell-Syntax-Plugin"]
-	path = .vim/bundle/Windows-PowerShell-Syntax-Plugin
-	url = git@github.com:vim-scripts/Windows-PowerShell-Syntax-Plugin.git
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = git@github.com:altercation/vim-colors-solarized.git
