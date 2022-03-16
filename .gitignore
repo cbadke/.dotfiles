@@ -17,7 +17,6 @@
 .lesshst
 .local/
 .mono/
-.oh-my-zsh/
 .rbenv/
 .ssh/
 .subversion/
