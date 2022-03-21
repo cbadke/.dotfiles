@@ -39,3 +39,20 @@ augroup END
 
 nnoremap gl <cmd>bnext<CR>
 nnoremap gh <cmd>bnext<CR>
+
+function! SuperCleverTab()
+    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
+        return "\<Tab>"
+    elseif pumvisible()
+        return "\<c-n>"
+    else
+        if &omnifunc != ''
+            return "\<C-X>\<C-O>"
+        elseif &dictionary != ''
+            return "\<C-K>"
+        else
+            return "\<C-N>"
+        endif
+    endif
+endfunction
+inoremap <Tab> <C-R>=SuperCleverTab()<cr>
