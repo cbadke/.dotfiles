@@ -9,6 +9,8 @@ if has("nvim")
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-telescope/telescope.nvim'
 
+    Plug 'ThePrimeagen/harpoon'
+
     Plug 'neovim/nvim-lspconfig'
 endif
 
