@@ -32,13 +32,15 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
 
-augroup cbad
+augroup trim_dangling_whitespace
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 
-nnoremap gl <cmd>bnext<CR>
-nnoremap gh <cmd>bnext<CR>
+nnoremap <C-l> <cmd>bnext<CR>
+nnoremap <C-h> <cmd>bprev<CR>
+nnoremap <C-j> <cmd>cnext<CR>
+nnoremap <C-k> <cmd>cprev<CR>
 
 function! SuperCleverTab()
     if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
@@ -56,3 +58,30 @@ function! SuperCleverTab()
     endif
 endfunction
 inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+
+
+" Make Y yank to end of line like D or C
+nnoremap Y y$
+
+" Keep search and J centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Set new undo breakpoints
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" add big relative moves to the jump list
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" move lines of text without copy/paste
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==i
+inoremap <C-k> <esc>:m .-2<CR>==i
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
