@@ -1,3 +1,14 @@
+
+export ZSH="$HOME/.oh-my-zsh"
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+source $ZSH/oh-my-zsh.sh
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+fpath=(~/.zsh $fpath)
+
 export DEFAULT_USER=cbadke
 
 export PATH=$PATH:~/.local/bin
@@ -6,15 +17,12 @@ alias rm="rm -i"
 alias ls="ls -Glah"
 alias g="git"
 
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+# never beep
+setopt NO_BEEP
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-fpath=(~/.zsh $fpath)
-
-autoload -Uz compinit && compinit
+# Ctrl-left/right jumps words
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 # make changing directories automatically run ls
 function chpwd() {
@@ -51,7 +59,6 @@ for zshrc in $(\ls ~/.zsh/.*-zshrc | sort)
 do
     source $zshrc
 done
-
 
 
 clear
