@@ -22,6 +22,8 @@ alias dots="cd ~/.dotfiles"
 
 # never beep
 setopt NO_BEEP
+# include hidden in tab completion
+setopt globdots
 
 # Ctrl-left/right jumps words
 bindkey "^[[1;5C" forward-word

@@ -55,8 +55,9 @@ while getopts :sw:b:p:t:m opt; do
 	esac
 done
 
+clear
+
 if [[ -z "$TASK" ]]; then
-  clear
   task
   read -p "What task are you working on? " TASK
 fi
