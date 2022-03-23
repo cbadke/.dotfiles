@@ -14,8 +14,11 @@ export DEFAULT_USER=cbadke
 export PATH=$PATH:~/.local/bin
 
 alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
 alias ls="ls -Glah"
 alias g="git"
+alias dots="cd ~/.dotfiles"
 
 # never beep
 setopt NO_BEEP

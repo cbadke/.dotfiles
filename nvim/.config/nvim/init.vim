@@ -16,6 +16,7 @@ endif
 
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
+Plug 'puremourning/vimspector'
 " undotree
 call plug#end()
 
