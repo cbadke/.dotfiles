@@ -33,7 +33,7 @@ set scrolloff=8
 set colorcolumn=80
 set signcolumn=yes
 
-set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 set updatetime=50
 
 set list

@@ -12,6 +12,17 @@ if has("nvim")
     Plug 'ThePrimeagen/harpoon'
 
     Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
+
+    Plug 'rafamadriz/friendly-snippets'
 endif
 
 Plug 'gruvbox-community/gruvbox'
@@ -45,22 +56,26 @@ nnoremap <C-h> <cmd>bprev<CR>
 nnoremap <C-j> <cmd>cnext<CR>
 nnoremap <C-k> <cmd>cprev<CR>
 
-function! SuperCleverTab()
-    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
-        return "\<Tab>"
-    elseif pumvisible()
-        return "\<c-n>"
-    else
-        if &omnifunc != ''
-            return "\<C-X>\<C-O>"
-        elseif &dictionary != ''
-            return "\<C-K>"
+if has("nvim")
+else
+    function! SuperCleverTab()
+        if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
+            return "\<Tab>"
+        elseif pumvisible()
+            return "\<c-n>"
         else
-            return "\<C-N>"
+            if &omnifunc != ''
+                return "\<C-X>\<C-O>"
+            elseif &dictionary != ''
+                return "\<C-K>"
+            else
+                return "\<C-N>"
+            endif
         endif
-    endif
-endfunction
-inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+    endfunction
+
+    inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+endif
 
 
 " Make Y yank to end of line like D or C
@@ -88,3 +103,4 @@ inoremap <C-j> <esc>:m .+1<CR>==i
 inoremap <C-k> <esc>:m .-2<CR>==i
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
+
