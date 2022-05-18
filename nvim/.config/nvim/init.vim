@@ -3,26 +3,31 @@ let mapleader = " "
 call plug#begin('~/.vim/plugged')
 
 if has("nvim")
+
+    " telescope dependencies
     Plug 'nvim-lua/plenary.nvim'
     Plug 'BurntSushi/ripgrep'
     Plug 'sharkdp/fd'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-telescope/telescope.nvim'
 
-    Plug 'ThePrimeagen/harpoon'
+    " snippets
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
+    Plug 'rafamadriz/friendly-snippets'
 
+    " completion magic
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
     Plug 'hrsh7th/cmp-path'
-    Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-vsnip'
-    Plug 'hrsh7th/vim-vsnip'
-    Plug 'hrsh7th/vim-vsnip-integ'
+    Plug 'hrsh7th/nvim-cmp'
 
-    Plug 'rafamadriz/friendly-snippets'
+    Plug 'windwp/nvim-autopairs'
+
 endif
 
 Plug 'gruvbox-community/gruvbox'
@@ -93,8 +98,8 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
 " add big relative moves to the jump list
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 
 " move lines of text without copy/paste
 vnoremap J :m '>+1<CR>gv=gv
