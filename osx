@@ -43,6 +43,7 @@ brew_install_or_upgrade fd
 brew_install_or_upgrade node
 npm_install_or_upgrade pyright
 
+brew_install_or_upgrade coreutils
 brew_install_or_upgrade git
 brew_install_or_upgrade diff-so-fancy
 
@@ -51,7 +52,7 @@ brew_install_or_upgrade jq
 brew cleanup
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="git,intuit,pomo,task,timewarrior,tmux,nvim,zsh,vim"
+    STOW_FOLDERS="git,intuit,pomo,task,timewarrior,tmux,nvim,zsh,vim,python"
 fi
 
 if [[ -z $DOTFILES ]]; then
