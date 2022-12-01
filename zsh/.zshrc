@@ -13,12 +13,22 @@ export DEFAULT_USER=cbadke
 
 export PATH=$PATH:~/.local/bin
 
-alias rm="rm -i"
-alias mv="mv -i"
+myPath=`dirname ${(%):-%N}`
+alias average="awk -f $myPath/scripts/awk/average.awk"
+alias count="wc -l"
 alias cp="cp -i"
-alias ls="ls -Glah"
-alias g="git"
 alias dots="cd ~/.dotfiles"
+alias f="find . -name"
+alias g="git"
+alias gip="curl ipinfo.io/ip && echo '' && curl ipinfo.io/org"
+alias ls="ls -Glah"
+alias max="awk -f $myPath/scripts/awk/max.awk"
+alias min="awk -f $myPath/scripts/awk/min.awk"
+alias mv="mv -i"
+alias rm="rm -i"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 # never beep
 setopt NO_BEEP
@@ -34,14 +44,6 @@ function chpwd() {
     emulate -L zsh
     ls -Glah
 }
-
-myPath=`dirname ${(%):-%N}`
-alias average="awk -f $myPath/scripts/awk/average.awk"
-alias min="awk -f $myPath/scripts/awk/min.awk"
-alias max="awk -f $myPath/scripts/awk/max.awk"
-alias count="wc -l"
-alias vim="nvim"
-alias vi="nvim"
 
 if [[ "$LC_TERMINAL" = "iTerm2" ]]
 then

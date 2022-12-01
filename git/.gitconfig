@@ -29,6 +29,7 @@
 	fa = fetch --all --prune --prune-tags
 	ff = pull --ff-only --prune
 	lg = log --graph --date-order -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
+    mff = !git checkout main && git pull --ff-only --prune
 	new = log origin/master.. --reverse -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 	noff = merge --no-ff
 	pf = push --force

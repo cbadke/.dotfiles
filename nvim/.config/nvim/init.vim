@@ -9,6 +9,7 @@ if has("nvim")
     Plug 'BurntSushi/ripgrep'
     Plug 'sharkdp/fd'
     Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter-context'
     Plug 'nvim-telescope/telescope.nvim'
 
     " snippets
@@ -33,7 +34,6 @@ endif
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'puremourning/vimspector'
-" undotree
 call plug#end()
 
 colorscheme gruvbox
@@ -109,3 +109,4 @@ inoremap <C-k> <esc>:m .-2<CR>==i
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
 
+nnoremap <leader>ls <CMD>Ex<CR>

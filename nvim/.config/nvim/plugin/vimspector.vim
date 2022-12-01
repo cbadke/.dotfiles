@@ -3,3 +3,4 @@ let g:vimspector_install_gadgets = [ 'debugpy' ]
 
 noremap <Leader>di <Plug>VimspectorBalloonEval
 noremap <Leader>db <Plug>VimspectorBreakpoints
+noremap <S-F3> <cmd>VimspectorReset<CR>
