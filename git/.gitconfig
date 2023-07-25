@@ -14,6 +14,7 @@
 	aa = add --all .
 	amend = commit --amend
 	b = branch
+	bl = branch --list
 	ce = commit --allow-empty
 	cme = commit --allow-empty -m
 	ci = commit

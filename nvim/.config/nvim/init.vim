@@ -91,6 +91,12 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 
+" Keep paging movements centered
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-f> <C-f>zz
+nnoremap <C-b> <C-b>zz
+
 " Set new undo breakpoints
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
