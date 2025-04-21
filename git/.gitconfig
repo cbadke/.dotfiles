@@ -20,6 +20,7 @@
 	ci = commit
 	cm = commit -m
 	co = checkout
+	cob = checkout -b
 	d = diff
 	dc = diff --cached
 	dh1 = diff -w HEAD~1 HEAD
@@ -30,12 +31,12 @@
 	fa = fetch --all --prune --prune-tags
 	ff = pull --ff-only --prune
 	lg = log --graph --date-order -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
-    mff = !git checkout main && git pull --ff-only --prune
-	new = log origin/master.. --reverse -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
+	mff = !git checkout main && git pull --ff-only --prune
+	new = log origin/main.. --reverse -C -M --pretty=format:\"<%Cred%h%Creset> %ad [%C(yellow)%an%Creset] %Cgreen%d%Creset %s\" --all --date=short
 	noff = merge --no-ff
 	pf = push --force
 	po = push -u origin
-	pom = push origin master
+	pom = push origin main
 	prn = remote prune
 	prno = remote prune origin
 	recent = for-each-ref --sort=-committerdate --count=10 --format=‘%(refname:short)’ refs/heads/
@@ -43,14 +44,14 @@
 	rba = rebase --abort
 	rbc = rebase --continue
 	rbi = rebase -i
-	rbim = rebase -i origin/master
-	rbm = rebase origin/master
+	rbim = rebase -i origin/main
+	rbm = rebase origin/main
 	s = status
 	scrub = !git clean -xfd && git reset --hard
 	st = status
 	unstage = restore --staged
 
-	#https://github.com/brauliobo/gitconfig/blob/master/configs/.gitconfig
+	#https://github.com/brauliobo/gitconfig/blob/main/configs/.gitconfig
 	# git change-commits GIT_COMMITTER_NAME "old name" "new name"
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
 	# from https://help.github.com/articles/remove-sensitive-data
