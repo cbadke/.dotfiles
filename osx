@@ -48,7 +48,7 @@ brew_install_or_upgrade jq
 brew cleanup
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="git,pomo,tmux,nvim,zsh,vim,python"
+    STOW_FOLDERS="git,tmux,nvim,zsh,vim,python"
 fi
 
 if [[ -z $DOTFILES ]]; then
