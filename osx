@@ -30,10 +30,6 @@ brew_install_or_upgrade stow
 # zsh experience
 brew_install_or_upgrade powerlevel10k
 
-# cli task management, used by pomo
-brew_install_or_upgrade timewarrior
-brew_install_or_upgrade task
-
 # make nvim/vim awesome
 brew_install_or_upgrade nvim
 brew_install_or_upgrade tmux
@@ -52,7 +48,7 @@ brew_install_or_upgrade jq
 brew cleanup
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="git,intuit,pomo,task,timewarrior,tmux,nvim,zsh,vim,python"
+    STOW_FOLDERS="git,pomo,tmux,nvim,zsh,vim,python"
 fi
 
 if [[ -z $DOTFILES ]]; then

@@ -1,6 +1,6 @@
 [user]
 	name = Curtis Badke
-	email = curtis_badke@intuit.com
+	email = cbadke@gmail.com
 
 [diff]
 	renames = true
@@ -66,3 +66,6 @@
 	rebase = true
 [init]
 	defaultBranch = main
+
+[include]
+    path = ~/.work-dotfiles/git/.gitconfig
