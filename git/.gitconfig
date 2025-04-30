@@ -63,9 +63,15 @@
 [init]
 	defaultBranch = main
 
+[user]
+	email = ""
+
 [includeIf "hasconfig:remote.*.url:git@github.*.com:*/**"]
+    path = ~/.work-dotfiles/git/.gitconfig
+[includeIf "hasconfig:remote.*.url:https://github.*.com/*/**"]
     path = ~/.work-dotfiles/git/.gitconfig
 
 [includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
     path = .gitconfig.personal
-
+[includeIf "hasconfig:remote.*.url:https://github.com/*/**"]
+    path = .gitconfig.personal
