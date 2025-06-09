@@ -29,7 +29,6 @@ export PATH=/opt/homebrew/bin:$PATH:~/.local/bin:~/go/bin
 
 myPath=`dirname ${(%):-%N}`
 alias average="awk -f $myPath/scripts/awk/average.awk"
-alias brew=/opt/homebrew/bin/brew
 alias count="wc -l"
 alias cp="cp -i"
 alias dots="cd ~/.dotfiles"
@@ -44,6 +43,13 @@ alias rm="rm -i"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+
+if [ -d /home/linuxbrew/.linuxbrew/bin ]; then
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+else
+	alias brew=/opt/homebrew/bin/brew
+fi
+
 
 # never beep
 setopt NO_BEEP

@@ -1,0 +1,58 @@
+#!/usr/bin/env zsh
+
+set -o err_return
+
+function npm_install_or_upgrade {
+    if npm ls -g "$1" >/dev/null; then
+        npm update -g "$1"
+    else
+        npm install -g "$1"
+    fi
+}
+
+# makes this whole management thing work
+sudo apt update
+sudo apt install \
+    build-essential \
+    cargo \
+    curl \
+    fd-find \
+    git \
+    jq \
+    lua5.1 \
+    nodejs \
+    python3-full \
+    python3-venv \
+    python3-pip \
+    ripgrep \
+    rustc \
+    rustfmt \
+    # rustup \ # available starting Debian 13 (trixie)
+    stow \
+    tmux
+
+# get latest neo because debian won't
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install neovim
+
+# starship prompt
+mkdir -p /home/cbadke/.local/bin
+curl -sS https://starship.rs/install.sh | BIN_DIR="/home/cbadke/.local/bin" sh
+
+# zsh experience
+[ -d ~/powerlevel10k ] || git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+
+# dev tools
+pip install --user --break-system-packages pyright
+pip install --user --break-system-packages pynvim
+brew install diff-so-fancy
+
+if [[ -z $STOW_FOLDERS ]]; then
+    STOW_FOLDERS="i3,git,tmux,nvim,zsh,vim,python,X"
+fi
+
+if [[ -z $DOTFILES ]]; then
+    DOTFILES=$HOME/.dotfiles
+fi
+
+STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/install
